@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, Github, Linkedin, Mail, Code2, Lightbulb, Rocket, Award, Zap } from 'lucide-react';
+import { ArrowRight, Download, Github, Linkedin, Mail, Code2, Lightbulb, Rocket, Award, Zap, Monitor, Server, Database, Palette, CheckCircle2, Star, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FloatingElements from '@/components/FloatingElements';
 import StatsCard from '@/components/StatsCard';
@@ -9,18 +9,30 @@ const Index = () => {
   const stats = [
     { value: '1+', label: 'Years Experience' },
     { value: '8+', label: 'Projects Completed' },
-    { value: '40%', label: 'UI Performance Improvement' },
+    { value: '40%', label: 'UI Performance Boost' },
     { value: '98', label: 'Lighthouse Score' },
   ];
 
   const highlights = [
-    { icon: Code2, title: 'What I Do', description: 'Full Stack expertise in React, Node.js & MongoDB' },
-    { icon: Lightbulb, title: 'Why I Code', description: 'Passion for building scalable, user-focused solutions' },
-    { icon: Rocket, title: 'Vision', description: 'Creating impactful digital products that matter' },
-    { icon: Award, title: 'Featured', description: 'BrajMart platform with 40% UI improvement' },
+    { icon: Code2, title: 'What I Do', description: 'Building scalable web apps with React, Node.js, TypeScript & MongoDB' },
+    { icon: Lightbulb, title: 'Why I Code', description: 'Passionate about creating elegant solutions to complex problems' },
+    { icon: Rocket, title: 'My Vision', description: 'Crafting digital products that make a real impact on users' },
+    { icon: Award, title: 'Key Achievement', description: 'Achieved 40% UI improvement at BrajMart platform' },
   ];
 
-  const topSkills = ['React', 'TypeScript', 'Node.js', 'MongoDB', 'Tailwind CSS'];
+  const services = [
+    { icon: Monitor, title: 'Frontend Development', description: 'Modern, responsive UIs with React, TypeScript & Tailwind CSS' },
+    { icon: Server, title: 'Backend Development', description: 'Robust APIs with Node.js, Express & secure authentication' },
+    { icon: Database, title: 'Database Design', description: 'Scalable data models with MongoDB & PostgreSQL' },
+    { icon: Palette, title: 'UI/UX Design', description: 'User-centered designs with Figma & modern design principles' },
+  ];
+
+  const topSkills = ['React', 'TypeScript', 'Node.js', 'MongoDB', 'Tailwind CSS', 'Express.js'];
+
+  const testimonials = [
+    { text: 'Improved our platform performance by 40%', author: 'BrajMart Team', role: 'Client' },
+    { text: 'Excellent problem-solving skills', author: 'GLA University', role: 'Academics' },
+  ];
 
   return (
     <main className="relative min-h-screen overflow-hidden">
@@ -28,141 +40,152 @@ const Index = () => {
       <div className="absolute inset-0 tech-pattern" />
       <FloatingElements />
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-24 lg:pt-48 lg:pb-32">
+      {/* Hero Section - Centered */}
+      <section className="relative min-h-screen flex items-center justify-center py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Content */}
+          <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+            {/* Availability Badge */}
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="order-2 lg:order-1"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky/10 text-sky text-sm font-medium mb-8"
             >
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky/10 text-sky text-sm font-medium mb-6"
-              >
-                <Zap size={16} />
-                Available for Remote & Freelance Work
-              </motion.div>
-
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-navy leading-tight mb-4"
-              >
-                Deepak Jadon
-              </motion.h1>
-
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="text-xl sm:text-2xl font-medium text-muted-foreground mb-6"
-              >
-                Full Stack <span className="gradient-text-sky">Developer</span>
-              </motion.h2>
-
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-                className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8 max-w-lg"
-              >
-                Crafting exceptional digital experiences through innovative code, elegant design, and cutting-edge technology solutions.
-              </motion.p>
-
-              {/* CTA Buttons */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
-                className="flex flex-wrap gap-4 mb-8"
-              >
-                <Link to="/projects">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-sky text-white font-medium shadow-sky hover:bg-sky-dark transition-colors"
-                  >
-                    View My Work
-                    <ArrowRight size={18} />
-                  </motion.button>
-                </Link>
-                <a href="/resume" target="_blank">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-navy text-navy font-medium hover:bg-navy hover:text-white transition-all"
-                  >
-                    <Download size={18} />
-                    Resume
-                  </motion.button>
-                </a>
-              </motion.div>
-
-              {/* Social Links */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7 }}
-                className="flex items-center gap-4"
-              >
-                <span className="text-sm text-muted-foreground">Connect:</span>
-                {[
-                  { icon: Github, href: 'https://github.com/deepakjadon1902' },
-                  { icon: Linkedin, href: 'https://linkedin.com/in/deepak-jadon-612487272' },
-                  { icon: Mail, href: 'mailto:deepakjadon1907@gmail.com' },
-                ].map(({ icon: Icon, href }, index) => (
-                  <motion.a
-                    key={index}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center text-muted-foreground hover:bg-sky hover:text-white transition-all"
-                  >
-                    <Icon size={18} />
-                  </motion.a>
-                ))}
-              </motion.div>
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+              Available for Remote & Freelance Work
             </motion.div>
 
-            {/* Profile Image */}
+            {/* Profile Avatar */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
+              initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="order-1 lg:order-2 flex justify-center"
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="mb-8"
             >
-              <TiltCard className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
-                <div className="relative w-full h-full rounded-3xl overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-sky/20 via-transparent to-navy/20" />
-                  <div className="absolute inset-0 bg-gradient-to-tr from-navy via-navy-light to-sky flex items-center justify-center">
-                    <div className="text-center text-white">
-                      <div className="w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-4 rounded-full bg-white/20 flex items-center justify-center text-5xl sm:text-6xl font-bold">
-                        DJ
-                      </div>
-                      <p className="text-sm sm:text-base font-medium opacity-80">Full Stack Developer</p>
-                    </div>
-                  </div>
-                  <div className="absolute inset-0 border-4 border-sky/30 rounded-3xl animate-pulse-glow" />
+              <TiltCard className="w-36 h-36 sm:w-44 sm:h-44">
+                <div className="w-full h-full rounded-full bg-gradient-to-br from-sky via-sky-dark to-navy flex items-center justify-center text-white text-4xl sm:text-5xl font-bold shadow-sky border-4 border-white/20">
+                  DJ
                 </div>
               </TiltCard>
+            </motion.div>
+
+            {/* Name & Title */}
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-navy leading-tight mb-4"
+            >
+              Deepak Jadon
+            </motion.h1>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="flex items-center gap-2 text-xl sm:text-2xl md:text-3xl font-medium text-muted-foreground mb-6"
+            >
+              <span>Full Stack</span>
+              <span className="gradient-text-sky font-bold">Developer</span>
+            </motion.div>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed mb-10 max-w-2xl"
+            >
+              Crafting exceptional digital experiences through innovative code, elegant design, and cutting-edge technology solutions. Specialized in React, Node.js & MongoDB.
+            </motion.p>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="flex flex-wrap justify-center gap-4 mb-10"
+            >
+              <Link to="/projects">
+                <motion.button
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-sky text-white font-semibold shadow-sky hover:bg-sky-dark transition-all"
+                >
+                  View My Work
+                  <ArrowRight size={20} />
+                </motion.button>
+              </Link>
+              <Link to="/resume">
+                <motion.button
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border-2 border-navy text-navy font-semibold hover:bg-navy hover:text-white transition-all"
+                >
+                  <Download size={20} />
+                  Download Resume
+                </motion.button>
+              </Link>
+            </motion.div>
+
+            {/* Social Links */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7 }}
+              className="flex items-center gap-4"
+            >
+              {[
+                { icon: Github, href: 'https://github.com/deepakjadon1902', label: 'GitHub' },
+                { icon: Linkedin, href: 'https://linkedin.com/in/deepak-jadon-612487272', label: 'LinkedIn' },
+                { icon: Mail, href: 'mailto:deepakjadon1907@gmail.com', label: 'Email' },
+              ].map(({ icon: Icon, href, label }) => (
+                <motion.a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.15, y: -3 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-12 h-12 rounded-xl bg-navy/5 border border-navy/10 flex items-center justify-center text-navy hover:bg-sky hover:text-white hover:border-sky transition-all"
+                  aria-label={label}
+                >
+                  <Icon size={22} />
+                </motion.a>
+              ))}
+            </motion.div>
+
+            {/* Scroll Indicator */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, y: [0, 10, 0] }}
+              transition={{ delay: 1, duration: 2, repeat: Infinity }}
+              className="absolute bottom-8 left-1/2 -translate-x-1/2"
+            >
+              <div className="w-6 h-10 rounded-full border-2 border-navy/30 flex items-start justify-center p-2">
+                <div className="w-1.5 h-3 rounded-full bg-sky animate-bounce" />
+              </div>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="relative py-16 sm:py-24 bg-muted/30">
+      <section className="relative py-20 bg-gradient-to-b from-muted/50 to-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-2xl sm:text-3xl font-bold text-navy mb-2">
+              Quick <span className="gradient-text-sky">Overview</span>
+            </h2>
+            <p className="text-muted-foreground">Numbers that speak for themselves</p>
+          </motion.div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto">
             {stats.map((stat, index) => (
               <StatsCard key={stat.label} {...stat} delay={index * 0.1} />
             ))}
@@ -170,8 +193,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Highlights Section */}
-      <section className="relative py-16 sm:py-24">
+      {/* Services Section */}
+      <section className="relative py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -181,12 +204,53 @@ const Index = () => {
             className="text-center mb-12"
           >
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy mb-4">
-              What Makes Me <span className="gradient-text-sky">Different</span>
+              What I <span className="gradient-text-sky">Offer</span>
+            </h2>
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              End-to-end web development services from design to deployment
+            </p>
+            <div className="mt-4 w-20 h-1 rounded-full bg-gradient-to-r from-sky to-sky-light mx-auto" />
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {services.map(({ icon: Icon, title, description }, index) => (
+              <motion.div
+                key={title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -10, scale: 1.02 }}
+                className="group p-6 rounded-2xl bg-background border border-border hover:border-sky/30 hover:shadow-lg transition-all duration-300 text-center"
+              >
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-sky/10 to-sky/5 flex items-center justify-center mb-5 mx-auto group-hover:bg-sky group-hover:scale-110 transition-all duration-300">
+                  <Icon size={28} className="text-sky group-hover:text-white transition-colors" />
+                </div>
+                <h3 className="text-lg font-semibold text-navy mb-2 group-hover:text-sky transition-colors">{title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Me Section */}
+      <section className="relative py-20 bg-muted/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy mb-4">
+              Why Choose <span className="gradient-text-sky">Me</span>
             </h2>
             <div className="w-20 h-1 rounded-full bg-gradient-to-r from-sky to-sky-light mx-auto" />
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {highlights.map(({ icon: Icon, title, description }, index) => (
               <motion.div
                 key={title}
@@ -195,22 +259,26 @@ const Index = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -8 }}
-                className="group p-6 rounded-2xl bg-background border border-border hover:border-sky/30 hover:shadow-lg transition-all duration-300"
+                className="group relative p-6 rounded-2xl bg-background border border-border hover:border-sky/30 hover:shadow-lg transition-all duration-300"
               >
+                <div className="absolute top-0 left-0 w-full h-1 rounded-t-2xl bg-gradient-to-r from-sky to-sky-light opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="w-14 h-14 rounded-xl bg-sky/10 flex items-center justify-center mb-4 group-hover:bg-sky transition-colors">
-                  <Icon size={28} className="text-sky group-hover:text-white transition-colors" />
+                  <Icon size={26} className="text-sky group-hover:text-white transition-colors" />
                 </div>
                 <h3 className="text-lg font-semibold text-navy mb-2">{title}</h3>
-                <p className="text-sm text-muted-foreground">{description}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Top Skills */}
-      <section className="relative py-16 sm:py-24 bg-navy">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Tech Stack Section */}
+      <section className="relative py-20 bg-navy overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 grid-pattern" />
+        </div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -218,10 +286,13 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center"
           >
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">
               Core <span className="text-sky">Technologies</span>
             </h2>
-            <div className="flex flex-wrap justify-center gap-4">
+            <p className="text-white/60 mb-10 max-w-lg mx-auto">
+              The tools and frameworks I use to bring ideas to life
+            </p>
+            <div className="flex flex-wrap justify-center gap-4 max-w-3xl mx-auto">
               {topSkills.map((skill, index) => (
                 <motion.span
                   key={skill}
@@ -229,43 +300,177 @@ const Index = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  whileHover={{ scale: 1.1 }}
+                  whileHover={{ scale: 1.1, y: -3 }}
                   className="px-6 py-3 rounded-full border border-white/20 text-white font-medium hover:bg-sky hover:border-sky transition-all cursor-default"
                 >
                   {skill}
                 </motion.span>
               ))}
             </div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              viewport={{ once: true }}
+              className="mt-12"
+            >
+              <Link to="/skills">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/10 text-white font-medium hover:bg-sky transition-all"
+                >
+                  View All Skills
+                  <ArrowRight size={18} />
+                </motion.button>
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
+      {/* Featured Experience */}
+      <section className="relative py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="relative p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-sky/5 via-background to-navy/5 border border-border overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 w-40 h-40 bg-sky/10 rounded-full blur-3xl" />
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-navy/10 rounded-full blur-3xl" />
+              
+              <div className="relative">
+                <div className="flex items-center gap-2 mb-4">
+                  <TrendingUp size={20} className="text-sky" />
+                  <span className="text-sm font-medium text-sky">Featured Experience</span>
+                </div>
+
+                <h3 className="text-2xl sm:text-3xl font-bold text-navy mb-2">
+                  Web Developer at BrajMart
+                </h3>
+                <p className="text-muted-foreground mb-6">June 2024 – Present | Remote + On-Site</p>
+
+                <div className="grid sm:grid-cols-2 gap-4 mb-8">
+                  {[
+                    'Improved UI performance by 40%',
+                    'Reduced API latency by 25%',
+                    'Reduced production bugs by 35%',
+                    'Built scalable MongoDB models',
+                  ].map((achievement, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                      className="flex items-center gap-3 p-3 rounded-xl bg-background border border-border"
+                    >
+                      <CheckCircle2 size={18} className="text-sky flex-shrink-0" />
+                      <span className="text-sm text-muted-foreground">{achievement}</span>
+                    </motion.div>
+                  ))}
+                </div>
+
+                <Link to="/about">
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="inline-flex items-center gap-2 text-sky font-medium hover:gap-3 transition-all"
+                  >
+                    Read More About Me
+                    <ArrowRight size={18} />
+                  </motion.button>
+                </Link>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="relative py-20 bg-muted/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-2xl sm:text-3xl font-bold text-navy mb-4">
+              What People <span className="gradient-text-sky">Say</span>
+            </h2>
+            <div className="w-20 h-1 rounded-full bg-gradient-to-r from-sky to-sky-light mx-auto" />
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="p-6 rounded-2xl bg-background border border-border"
+              >
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={16} className="text-yellow-400 fill-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-muted-foreground mb-4 italic">"{testimonial.text}"</p>
+                <div>
+                  <p className="font-semibold text-navy">{testimonial.author}</p>
+                  <p className="text-sm text-sky">{testimonial.role}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="relative py-20 sm:py-32">
+      <section className="relative py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center"
+            className="text-center max-w-3xl mx-auto"
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-navy mb-6">
-              Let's Build Something <span className="gradient-text-sky">Amazing</span>
+              Ready to Build Something <span className="gradient-text-sky">Amazing?</span>
             </h2>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Have a project in mind? I'm always excited to collaborate on innovative ideas and bring them to life.
+            <p className="text-lg text-muted-foreground mb-10">
+              I'm always excited to collaborate on innovative ideas. Let's turn your vision into reality!
             </p>
-            <Link to="/contact">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-sky text-white text-lg font-medium shadow-sky hover:bg-sky-dark transition-colors"
-              >
-                Get in Touch
-                <ArrowRight size={20} />
-              </motion.button>
-            </Link>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link to="/contact">
+                <motion.button
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center gap-2 px-10 py-5 rounded-xl bg-sky text-white text-lg font-semibold shadow-sky hover:bg-sky-dark transition-all"
+                >
+                  Let's Talk
+                  <ArrowRight size={22} />
+                </motion.button>
+              </Link>
+              <Link to="/projects">
+                <motion.button
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center gap-2 px-10 py-5 rounded-xl border-2 border-navy text-navy text-lg font-semibold hover:bg-navy hover:text-white transition-all"
+                >
+                  View Projects
+                </motion.button>
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>
